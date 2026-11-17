@@ -1,0 +1,276 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #080b18;
+}
+
+/* Main Background */
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(124, 58, 237, 0.18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(6, 182, 212, 0.13),
+      transparent 35%
+    ),
+    #080b18;
+}
+
+/* Wrapper */
+.todo-wrapper {
+  width: 100%;
+  max-width: 620px;
+  animation: fadeIn 0.8s ease;
+}
+
+/* Heading */
+.todo-wrapper h1 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 38px;
+  font-weight: 750;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+
+  text-shadow:
+    0 0 15px rgba(139, 92, 246, 0.5);
+}
+
+/* Main Box */
+.todo-container {
+  width: 100%;
+  padding: 30px;
+  border-radius: 22px;
+
+  background: rgba(20, 25, 48, 0.85);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.45),
+    0 0 30px rgba(124, 58, 237, 0.08);
+
+  backdrop-filter: blur(18px);
+}
+
+/* Input Area */
+.input-area {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Input */
+.input-area input[type="text"] {
+  flex: 1;
+  min-width: 0;
+  padding: 15px 18px;
+
+  background: #10162b;
+  color: #ffffff;
+
+  border: 1px solid #303956;
+  border-radius: 12px;
+
+  font-size: 15px;
+  outline: none;
+
+  transition: 0.3s ease;
+}
+
+.input-area input[type="text"]::placeholder {
+  color: #8992ad;
+}
+
+.input-area input[type="text"]:focus {
+  border-color: #9b72f2;
+
+  box-shadow:
+    0 0 0 3px rgba(139, 92, 246, 0.15);
+}
+
+/* Add Button */
+.add-btn {
+  padding: 0 23px;
+  border: none;
+  border-radius: 12px;
+
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  background: linear-gradient(
+    135deg,
+    #8b5cf6,
+    #6d28d9
+  );
+
+  box-shadow:
+    0 5px 18px rgba(124, 58, 237, 0.3);
+
+  transition: 0.3s ease;
+}
+
+.add-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 25px rgba(124, 58, 237, 0.45);
+}
+
+/* Task List */
+.task-list {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Individual Task */
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 15px;
+  border-radius: 13px;
+
+  background: #111a31;
+  border: 1px solid #283452;
+
+  animation: slideIn 0.35s ease;
+
+  transition: 0.3s ease;
+}
+
+.task-item:hover {
+  transform: translateX(4px);
+  border-color: #7654c9;
+  background: #17203b;
+}
+
+/* Checkbox */
+.task-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #9b72f2;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Task Text */
+.task-item span {
+  flex: 1;
+  min-width: 0;
+  color: #e5e7eb;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+  transition: 0.3s ease;
+}
+
+/* Completed Task */
+.task-item span.completed {
+  color: #78829e;
+  text-decoration: line-through;
+}
+
+/* Common Button */
+.task-item button {
+  border: none;
+  padding: 8px 13px;
+  border-radius: 8px;
+
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* Edit Button */
+.edit-btn {
+  background: #2563eb;
+}
+
+.edit-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* Delete Button */
+.delete-btn {
+  background: #dc3545;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  .todo-wrapper h1 {
+    font-size: 30px;
+  }
+
+  .todo-container {
+    padding: 20px;
+  }
+
+  .input-area {
+    flex-direction: column;
+  }
+
+  .add-btn {
+    padding: 13px;
+  }
+
+  .task-item {
+    flex-wrap: wrap;
+  }
+}
+
+
